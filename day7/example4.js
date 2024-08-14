@@ -1,4 +1,4 @@
-var uri = "https://restcountries.com/v3.1/all"; // "https://jsonplaceholder.typicode.com/todos/";
+var uri = "https://restcountries.com/v3.1/all";
 // Initialize New XMLHttpRequest instance
 var newInstance = new XMLHttpRequest();
 newInstance.open("GET", uri);
@@ -6,9 +6,7 @@ newInstance.send();
 newInstance.onreadystatechange = function () {
   if (this.status === 200 && this.readyState === 4) {
     var countries = JSON.parse(this.response);
-    // countries.forEach((country) =>
-    //   console.log(country.name.common, country.population)
-    // );
+    
     var totalPopulation = countries.reduce((prev, current) => {
       if (typeof prev === "object") {
         return prev.population + current.population;
