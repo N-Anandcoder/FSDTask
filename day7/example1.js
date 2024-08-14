@@ -6,16 +6,17 @@ newInstance.send();
 newInstance.onreadystatechange = function () {
   if (this.status === 200 && this.readyState === 4) {
     var countries = JSON.parse(this.response);
-    // countries.forEach((country) =>
-    //   console.log(country.name.common, country.population)
-    // );
-    var totalPopulation = countries.reduce((prev, current) => {
-      if (typeof prev === "object") {
-        return prev.population + current.population;
-      }
-      return prev + current.population;
-    });
-    console.log("Population", totalPopulation);
+     var filteredCountries = countries.filter((element) => element === "country.continent"&& element === "country.region");
+    console.log(filteredCountries);
+    
+     ;
+    // var totalPopulation = countries.reduce((prev, current) => {
+    //   if (typeof prev === "object") {
+    //     return prev.population + current.population;
+    //   }
+    //   return prev + current.population;
+    // });
+    // console.log("Population", totalPopulation);
   }
 };
 newInstance.onerror = function (error) {
